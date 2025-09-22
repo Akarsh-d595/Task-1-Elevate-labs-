@@ -1,0 +1,10 @@
+# Example (simulated) nmap output excerpt
+Nmap scan report for 192.168.29.207
+Host is up (0.0031s latency).
+Not shown: 65531 closed ports
+PORT     STATE SERVICE       VERSION
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds  Windows Server 2016 (workgroup: WORKGROUP)
+3306/tcp open  mysql         MySQL 5.7.31
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
