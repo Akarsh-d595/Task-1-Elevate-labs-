@@ -1,0 +1,6 @@
+# Ignore runtime logs and outputs
+*.log
+*.nmap
+*.gnmap
+*.xml
+examples/scan_results_*.txt
