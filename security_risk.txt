@@ -1,0 +1,25 @@
+# Researching common services and ports (what to look for)
+
+Ports found (examples):
+- 135 — msrpc : Windows RPC. Look for exposed RPC endpoints; older unpatched systems can be vulnerable.
+- 139 — netbios-ssn : NetBIOS session services.
+- 445 — microsoft-ds : SMB/CIFS. Check for guest/anonymous access and known CVEs (e.g., EternalBlue on unpatched systems).
+- 3306 — MySQL : DB server. Check for remote login allowed, weak credentials, or default accounts.
+
+Suggested steps:
+1. Use service version output from nmap (-sV) to identify software versions.
+2. Check vendor advisories or CVE entries for those versions.
+3. Note remediation: patch, disable service if unnecessary, firewall block, strong credentials.
+
+
+
+## the vulnerability research##
+
+
+1-Port 135 (msrpc): Vulnerable to remote code execution attacks if exposed publicly, attackers can exploit vulnerabilities in RPC services to gain unauthorized access.
+
+2-Port 139 (netbios-ssn): Risk of information disclosure and man-in-the-middle attacks; this port is often exploited to enumerate network shares and usernames, leading to possible unauthorized access.
+
+3-Port 445 (microsoft-ds): SMB vulnerabilities can lead to ransomware and worm outbreaks (e.g., WannaCry attack exploited SMB vulnerabilities on port 445). Exposure should be limited to trusted internal networks only.
+
+4-Port 3306 (mysql): If not properly secured, attackers can perform SQL injection, unauthorized data access, or even full database compromise. Exposing MySQL directly to networks increases risk of brute force attacks and data breaches.Mitigation includes disabling unnecessary services, using strong authentication, applying patches, and restricting access to trusted networks or VPNs only.
